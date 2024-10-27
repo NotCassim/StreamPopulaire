@@ -63,7 +63,7 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes pour avoir 12 icônes en 3 lignes */
+    grid-template-columns: repeat(3, 1fr); /* 4 colonnes pour avoir 12 icônes en 3 lignes */
     gap: 10px; /* Espace entre les icônes */
     width: 100%;
     max-width: 400px; /* Largeur maximale de la grille */

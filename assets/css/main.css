@@ -36,15 +36,49 @@ body {
 ol, ul {
 	list-style: none;
 }
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; 
+}
 
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; 
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  color: #333;
+  font-weight: 300;
+  line-height: 1.6; 
+}
+
+.container {
+  width: 60%;
+  margin: 2rem auto; 
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 1.5rem; 
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
 blockquote, q {
 	quotes: none;
 }
 
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
+
 
 table {
 	border-collapse: collapse;
@@ -65,12 +99,7 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-}
+
 
 /* Basic */
 
@@ -90,11 +119,10 @@ input, select, textarea {
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;
-			-ms-animation: none !important;
+
 			animation: none !important;
 			-moz-transition: none !important;
 			-webkit-transition: none !important;
-			-ms-transition: none !important;
 			transition: none !important;
 		}
 
@@ -357,20 +385,20 @@ input, select, textarea {
 		}
 
 		.row.gtr-0 {
-			margin-top: 0px;
-			margin-left: 0px;
+			margin-top: 0;
+			margin-left: 0;
 		}
 
 			.row.gtr-0 > * {
-				padding: 0px 0 0 0px;
+				padding: 0 0 0 0;
 			}
 
 			.row.gtr-0.gtr-uniform {
-				margin-top: 0px;
+				margin-top: 0;
 			}
 
 				.row.gtr-0.gtr-uniform > * {
-					padding-top: 0px;
+					padding-top: 0;
 				}
 
 		.row.gtr-25 {
@@ -600,20 +628,20 @@ input, select, textarea {
 				}
 
 				.row.gtr-0 {
-					margin-top: 0px;
-					margin-left: 0px;
+					margin-top: 0;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0px 0 0 0px;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0px;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0px;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
@@ -845,20 +873,20 @@ input, select, textarea {
 				}
 
 				.row.gtr-0 {
-					margin-top: 0px;
-					margin-left: 0px;
+					margin-top: 0;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0px 0 0 0px;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0px;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0px;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
@@ -1090,20 +1118,20 @@ input, select, textarea {
 				}
 
 				.row.gtr-0 {
-					margin-top: 0px;
-					margin-left: 0px;
+					margin-top: 0;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0px 0 0 0px;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0px;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0px;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
@@ -1335,20 +1363,20 @@ input, select, textarea {
 				}
 
 				.row.gtr-0 {
-					margin-top: 0px;
-					margin-left: 0px;
+					margin-top: 0;
+					margin-left: 0;
 				}
 
 					.row.gtr-0 > * {
-						padding: 0px 0 0 0px;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-0.gtr-uniform {
-						margin-top: 0px;
+						margin-top: 0;
 					}
 
 						.row.gtr-0.gtr-uniform > * {
-							padding-top: 0px;
+							padding-top: 0;
 						}
 
 				.row.gtr-25 {
@@ -1452,13 +1480,11 @@ input, select, textarea {
 	form input[type=password],
 	form select,
 	form textarea {
-		-webkit-appearance: none;
 		display: block;
 		border: 0;
 		padding: 0.75em 1em;
 		font-size: 1em;
 		border-radius: 5px;
-		border: solid 1px #dddddd;
 		background: #fff;
 		width: 100%;
 	}
@@ -1468,7 +1494,7 @@ input, select, textarea {
 		form input[type=password]:focus,
 		form select:focus,
 		form textarea:focus {
-			box-shadow: inset 0px 0px 1px 1px #43bff0;
+			box-shadow: inset 0 0 1px 1px #43bff0;
 		}
 
 	form textarea {
@@ -1608,7 +1634,6 @@ input, select, textarea {
 	input[type="reset"],
 	button,
 	.button {
-		-webkit-appearance: none;
 		display: inline-block;
 		text-decoration: none;
 		cursor: pointer;
@@ -1623,7 +1648,6 @@ input, select, textarea {
 		text-align: center;
 		-moz-transition: background-color .25s ease-in-out;
 		-webkit-transition: background-color .25s ease-in-out;
-		-ms-transition: background-color .25s ease-in-out;
 		transition: background-color .25s ease-in-out;
 	}
 
@@ -1917,7 +1941,6 @@ input, select, textarea {
 				background: #888;
 				-moz-transition: background-color .25s ease-in-out;
 				-webkit-transition: background-color .25s ease-in-out;
-				-ms-transition: background-color .25s ease-in-out;
 				transition: background-color .25s ease-in-out;
 			}
 
@@ -1984,14 +2007,11 @@ input, select, textarea {
 /* Icons */
 
 	.icon {
-		text-decoration: none;
 		position: relative;
 		text-decoration: none;
 	}
 
 		.icon:before {
-			-moz-osx-font-smoothing: grayscale;
-			-webkit-font-smoothing: antialiased;
 			display: inline-block;
 			font-style: normal;
 			font-variant: normal;
@@ -2113,7 +2133,6 @@ input, select, textarea {
 					padding: 0.6em 1.2em 0.6em 1.2em;
 					-moz-transition: background-color .25s ease-in-out;
 					-webkit-transition: background-color .25s ease-in-out;
-					-ms-transition: background-color .25s ease-in-out;
 					transition: background-color .25s ease-in-out;
 					outline: 0;
 				}
@@ -2131,11 +2150,10 @@ input, select, textarea {
 	.dropotron {
 		border-radius: 5px;
 		background-color: #252122;
-		background-color: rgba(34, 30, 31, 0.98);
 		padding: 1.25em 1.5em 1.25em 1.5em;
 		font-style: italic;
 		min-width: 13em;
-		box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.5);
 		text-align: left;
 		margin-top: -1.25em;
 		margin-left: -1px;
@@ -2147,7 +2165,6 @@ input, select, textarea {
 			text-decoration: none;
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
-			-ms-transition: color .25s ease-in-out;
 			transition: color .25s ease-in-out;
 		}
 
@@ -2324,12 +2341,6 @@ input, select, textarea {
 				color: inherit;
 			}
 
-		#footer ul.contact li,
-		#footer ul.dates li,
-		#footer ul.divided li {
-			border-top-color: #353434;
-			border-top-color: rgba(255, 255, 255, 0.05);
-		}
 
 		#footer header {
 			margin: 0 0 3em 0;
@@ -2548,11 +2559,10 @@ input, select, textarea {
 			#page-wrapper {
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
 				backface-visibility: hidden;
 				-moz-transition: -moz-transform 0.5s ease;
 				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+
 				transition: transform 0.5s ease;
 				padding-bottom: 1px;
 			}
@@ -2560,11 +2570,11 @@ input, select, textarea {
 			#titleBar {
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
+
 				backface-visibility: hidden;
 				-moz-transition: -moz-transform 0.5s ease;
 				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+
 				transition: transform 0.5s ease;
 				display: block;
 				height: 44px;
@@ -2583,8 +2593,7 @@ input, select, textarea {
 				}
 
 					#titleBar .toggle:before {
-						-moz-osx-font-smoothing: grayscale;
-						-webkit-font-smoothing: antialiased;
+
 						display: inline-block;
 						font-style: normal;
 						font-variant: normal;
@@ -2618,7 +2627,7 @@ input, select, textarea {
 			#navPanel {
 				-moz-backface-visibility: hidden;
 				-webkit-backface-visibility: hidden;
-				-ms-backface-visibility: hidden;
+
 				backface-visibility: hidden;
 				-moz-transform: translateX(-275px);
 				-webkit-transform: translateX(-275px);
@@ -2626,7 +2635,7 @@ input, select, textarea {
 				transform: translateX(-275px);
 				-moz-transition: -moz-transform 0.5s ease;
 				-webkit-transition: -webkit-transform 0.5s ease;
-				-ms-transition: -ms-transform 0.5s ease;
+
 				transition: transform 0.5s ease;
 				display: block;
 				height: 100%;
@@ -2638,7 +2647,7 @@ input, select, textarea {
 				z-index: 10002;
 				color: #858484;
 				background-image: url("images/bg02.png");
-				box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.35);
+				box-shadow: inset -3px 0 5px 0 rgba(0, 0, 0, 0.35);
 			}
 
 				#navPanel .link {

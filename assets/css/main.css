@@ -71,7 +71,6 @@ body {
 }
 
 .gallery__img {
-    background-color: #ddd;
     width: 100%; /* S'assure que les icônes prennent toute la largeur de leur case */
     aspect-ratio: 1 / 1; /* Maintient un carré */
     display: flex;

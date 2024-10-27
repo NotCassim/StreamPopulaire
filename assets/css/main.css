@@ -1930,6 +1930,12 @@ input, select, textarea {
 				ul.social li a.fa-facebook {
 					background: #3c5a98;
 				}
+				ul.social li a.fa-twitch {
+					background: #6441a5;
+				}
+				ul.social li a.fa-instagram {
+					background: #DD2A7B;
+				}
 
 					ul.social li a.fa-facebook:hover {
 						background: #4c6aa8;
